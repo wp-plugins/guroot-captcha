@@ -4,7 +4,7 @@ Donate link:
 Tags: captcha, comments, spam
 Requires at least:3.5.1
 Tested up to: 3.5.1
-Stable tag: 
+Stable tag: 0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,8 +21,8 @@ IMPORTANT : This pluggin require PHP 5.4 and GD extension.
 == Installation ==
 
 
- 1. Upload guroot_captcha folder to the /wp-content/plugins/ directory.
- 2. Activate the plugin through the 'Plugins' menu in WordPress.
+1. Upload guroot_captcha folder to the /wp-content/plugins/ directory.
+1. Activate the plugin through the 'Plugins' menu in WordPress.
    
 
 == Frequently Asked Questions ==
@@ -34,9 +34,15 @@ are comfortable with mysql, you can change them in the  wp_GURCAPTCHA_Images tab
 of your wordpress installation.
 
 
+== Screenshots ==
+
+1. screenshots/snapshot1.png
 
 == Changelog ==
 
 = 0.2 =
 First version uploaded to Wordpress plugin directory.
 
+== Upgrade Notice ==
+
+N/A
