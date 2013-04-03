@@ -36,7 +36,7 @@ of your wordpress installation.
 
 == Screenshots ==
 
-1. screenshots/snapshot1.png
+1. Captcha
 
 == Changelog ==
 
