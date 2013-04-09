@@ -60,7 +60,7 @@ private static $instance = null;
      */
     public function preprocess($comment) {
         $input = split(',', $_POST['Captcha_Solution']);
-        $solution = GURCAPTCHA_cookie::getInstance()->getServerSideData(GURCAPTCHA_cookie::getInstance()->getId());
+        $solution = GURCAPTCHA_cookie::getInstance()->getServerSideData(GURCAPTCHA_cookie::getInstance()->getId(),'order');
         $spam = false;
         // Without solution, obviously it's a spam
         if (!$solution)
