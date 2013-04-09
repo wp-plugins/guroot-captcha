@@ -11,6 +11,7 @@
  */
 
 define('WP_DEBUG', true);
+
 include __DIR__ . DIRECTORY_SEPARATOR . 'helper.php';
 
 function GURCAPTCHA_loader($class_name) { 
@@ -26,18 +27,22 @@ spl_autoload_register('GURCAPTCHA_loader');
 register_activation_hook(__FILE__, array(GURCAPTCHA_install::getInstance(), 'activate'));
 register_deactivation_hook(__FILE__, array(GURCAPTCHA_install::getInstance(), 'deactivate'));
 
+
+
 /** Bootstrap for displaying images from database **/
 function bootstrapForImageDisplay(){
-    global $wpdb;    
-    if(isset($_GET['GURCAPTCHA_image'])){
+    global $wpdb;
+    global $wp_query;
+    if (isset($_GET['GURCAPTCHA_image'])) {
         // Just for testing get the first image in db
         $imageClass = new GURCAPTCHA_image();
-        $order = GURCAPTCHA_cookie::getInstance()->getServerSideData(GURCAPTCHA_cookie::getInstance()->getId(), 'order');           
+        $order = GURCAPTCHA_cookie::getInstance()->getServerSideData(GURCAPTCHA_cookie::getInstance()->getId(), 'order');
         $imageClass->generateImage($order[intval($_GET['GURCAPTCHA_image'])]);
         $imageClass->output();
         die();
     }
 }
+
 
 add_action('init', 'bootstrapForImageDisplay'); 
 
