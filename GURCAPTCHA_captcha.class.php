@@ -66,7 +66,7 @@ private static $instance = null;
         if (!$solution)
             $spam = true;
         // Validate if posted order is the same as server side.
-        foreach ($solution['order'] as $order => $solution)
+        foreach ($solution as $order => $solution)
             if (intval($input[$solution]) !== ($order)) {
                 $spam = true;
             }
