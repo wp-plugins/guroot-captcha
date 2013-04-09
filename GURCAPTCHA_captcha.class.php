@@ -62,11 +62,13 @@ private static $instance = null;
         $input = split(',', $_POST['Captcha_Solution']);
         $solution = GURCAPTCHA_cookie::getInstance()->getServerSideData(GURCAPTCHA_cookie::getInstance()->getId(),'order');
         $spam = false;
+       
         // Without solution, obviously it's a spam
         if (!$solution)
             $spam = true;
         // Validate if posted order is the same as server side.
         foreach ($solution as $order => $solution)
+            echo "<br />{$input[$solution]}===> $order";
             if (intval($input[$solution]) !== ($order)) {
                 $spam = true;
             }
