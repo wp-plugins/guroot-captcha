@@ -4,7 +4,7 @@
   Plugin Name: Guroot Captcha
   Plugin URI:
   Description: Simple Captcha 
-  Version: 0.2.1
+  Version: 0.2.2
   Author: Jonathan Fleury
   Author URI: http://www.guroot.com
   License: GPL2
