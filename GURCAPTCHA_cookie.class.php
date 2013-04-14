@@ -18,7 +18,7 @@ class GURCAPTCHA_cookie {
     
     
     private function __construct() {
-        global $wpdb;
+        global $wpdb;global $wpdb;
         $this->wpdb = $wpdb;
 //        $this->wpdb->show_errors();
         $this->_initServerSideData();
@@ -78,9 +78,10 @@ class GURCAPTCHA_cookie {
             return false;
     }
 
-    private function _cookieInit() {
+    private function _cookieInit() {     
+        
         if (!isset($_COOKIE[COOKIE_NAME])) {
-            setcookie(COOKIE_NAME, serialize(array()), strtotime('+1 day'));
+            setcookie(COOKIE_NAME, serialize(array()),  strtotime('+1 day'),'/', parse_url(get_home_url())["host"]);
             $this->id = uniqid();
             $this->addCookieInfo(array("id" => $this->id));
             
@@ -92,7 +93,7 @@ class GURCAPTCHA_cookie {
             $r = array_merge($r, $arrayInfo);
         else
             $r = $arrayInfo;
-        setcookie(COOKIE_NAME, serialize($r), strtotime('+1 day'));
+        setcookie(COOKIE_NAME, serialize($r), strtotime('+1 day'),'/', parse_url(get_home_url())["host"]);
     }
 
     public function getCookieInfo($key){
@@ -106,7 +107,7 @@ class GURCAPTCHA_cookie {
     public function deletecookieInfo($key) {
         $array = unserialize($_COOKIE[COOKIE_NAME]);
         unset($array[Key]);
-        setcookie(COOKIE_NAME, serialize($array), strtotime('+1 day'));
+        setcookie(COOKIE_NAME, serialize($array), strtotime('+1 day'),'/', parse_url(get_home_url())["host"]);
     }
     
     public function getId(){
